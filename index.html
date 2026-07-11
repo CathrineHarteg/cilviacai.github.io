@@ -2,39 +2,188 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>My Site</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cilvia Cai</title>
 <style>
-  body {
-    background: black;
-    color: white;
-    font-family: Helvetica, Arial, sans-serif;
+  * {
     margin: 0;
-    padding: 40px;
+    padding: 0;
+    box-sizing: border-box;
   }
-  nav a {
-    color: white;
-    margin-right: 20px;
-    text-decoration: none;
-    font-weight: bold;
+  
+  body {
+    background: #0a0a0a;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    line-height: 1.6;
   }
-  nav a:hover {
-    text-decoration: underline;
-  }
-  .page {
-    display: none;
-    margin-top: 40px;
-  }
-  .page.active {
-    display: block;
-  }
+  
   .topbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 40px 60px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
   }
+  
   .signature {
     font-family: "Times New Roman", Times, serif;
-    font-size: 2em;
+    font-size: 2.5em;
+    font-weight: 300;
+    letter-spacing: 2px;
+  }
+  
+  nav {
+    display: flex;
+    gap: 30px;
+  }
+  
+  nav a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1em;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: width 0.3s ease;
+  }
+  
+  nav a:hover {
+    color: #fff;
+  }
+  
+  nav a:hover::after {
+    width: 100%;
+  }
+  
+  .container {
+    padding: 20px 60px 60px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .page {
+    display: none;
+    animation: fadeIn 0.5s ease-in;
+  }
+  
+  .page.active {
+    display: block;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+  
+  h2 {
+    font-size: 1.8em;
+    margin: 30px 0 15px 0;
+    font-weight: 400;
+  }
+  
+  p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    color: #b0b0b0;
+    line-height: 1.8;
+  }
+  
+  .intro-text {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    color: #a0a0a0;
+    line-height: 2;
+  }
+  
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 30px 0;
+  }
+  
+  .portfolio-item {
+    border: 1px solid #333;
+    padding: 25px;
+    background: #1a1a1a;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .portfolio-item:hover {
+    background: #252525;
+    border-color: #555;
+    transform: translateY(-5px);
+  }
+  
+  .portfolio-item h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  
+  .portfolio-item p {
+    color: #999;
+    font-size: 0.95em;
+  }
+  
+  .contact-info {
+    margin: 30px 0;
+    padding: 30px;
+    background: #1a1a1a;
+    border-left: 3px solid #555;
+  }
+  
+  .contact-item {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .contact-label {
+    font-weight: 600;
+    min-width: 100px;
+    color: #fff;
+  }
+  
+  .contact-value {
+    color: #b0b0b0;
+  }
+  
+  .contact-value a {
+    color: #b0b0b0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .contact-value a:hover {
+    color: #fff;
   }
 </style>
 </head>
@@ -42,32 +191,34 @@
 
 <div class="topbar">
   <nav>
-    <a href="#" onclick="showPage('page1')">Home</a>
-    <a href="#" onclick="showPage('page2')">About</a>
-    <a href="#" onclick="showPage('page3')">Work</a>
-    <a href="#" onclick="showPage('page4')">Contact</a>
+    <a href="#" onclick="showPage('page1'); return false;">Home</a>
+    <a href="#" onclick="showPage('page2'); return false;">About</a>
+    <a href="#" onclick="showPage('page3'); return false;">Work</a>
+    <a href="#" onclick="showPage('page4'); return false;">Contact</a>
   </nav>
   <div class="signature">cilvia cai</div>
 </div>
 
-<div id="page1" class="page active">
-  <h1>Home</h1>
-  <p>This is an example text for the home page.</p>
-</div>
+<div class="container">
+  <div id="page1" class="page active">
+    <h1>Home</h1>
+    <p>Welcome to my portfolio.</p>
+  </div>
 
-<div id="page2" class="page">
-  <h1>About</h1>
-  <p>This is an example text for the about page.</p>
-</div>
+  <div id="page2" class="page">
+    <h1>About</h1>
+    <p>This is the about page.</p>
+  </div>
 
-<div id="page3" class="page">
-  <h1>Work</h1>
-  <p>This is an example text for the work page.</p>
-</div>
+  <div id="page3" class="page">
+    <h1>Work</h1>
+    <p>This is the work page.</p>
+  </div>
 
-<div id="page4" class="page">
-  <h1>Contact</h1>
-  <p>This is an example text for the contact page.</p>
+  <div id="page4" class="page">
+    <h1>Contact</h1>
+    <p>This is the contact page.</p>
+  </div>
 </div>
 
 <script>

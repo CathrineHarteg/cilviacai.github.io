@@ -70,6 +70,44 @@
     width: 100%;
   }
   
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: 2px solid #e0e0e0;
+    color: #e0e0e0;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+ 
+  @media (max-width: 600px) {
+    .topbar {
+      padding: 20px 30px;
+      flex-wrap: wrap;
+    }
+    .menu-toggle {
+      display: block;
+    }
+    nav {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      gap: 0;
+      margin-top: 15px;
+    }
+    nav.open {
+      display: flex;
+    }
+    nav a {
+      padding: 12px 0;
+      border-bottom: 1px solid #333;
+    }
+    .container {
+      padding: 20px 30px 40px 30px;
+    }
+  }
+  
   .container {
     padding: 20px 60px 60px 60px;
     max-width: 1200px;
@@ -190,7 +228,8 @@
 <body>
 
 <div class="topbar">
-  <nav>
+  <button class="menu-toggle" onclick="toggleMenu()">Menu ▾</button>
+  <nav id="mainNav">
     <a href="#" onclick="showPage('page1'); return false;">home</a>
     <a href="#" onclick="showPage('page2'); return false;">about</a>
     <a href="#" onclick="showPage('page3'); return false;">work</a>
@@ -230,6 +269,11 @@
   function showPage(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById(id).classList.add('active');
+    document.getElementById('mainNav').classList.remove('open');
+  }
+  
+    function toggleMenu() {
+    document.getElementById('mainNav').classList.toggle('open');
   }
 </script>
 

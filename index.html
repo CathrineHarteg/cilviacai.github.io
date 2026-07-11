@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Site</title>
+<style>
+  body {
+    background: black;
+    color: white;
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 40px;
+  }
+  nav a {
+    color: white;
+    margin-right: 20px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  nav a:hover {
+    text-decoration: underline;
+  }
+  .page {
+    display: none;
+    margin-top: 40px;
+  }
+  .page.active {
+    display: block;
+  }
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .signature {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 2em;
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <nav>
+    <a href="#" onclick="showPage('page1')">Home</a>
+    <a href="#" onclick="showPage('page2')">About</a>
+    <a href="#" onclick="showPage('page3')">Work</a>
+    <a href="#" onclick="showPage('page4')">Contact</a>
+  </nav>
+  <div class="signature">cilvia cai</div>
+</div>
+
+<div id="page1" class="page active">
+  <h1>Home</h1>
+  <p>This is an example text for the home page.</p>
+</div>
+
+<div id="page2" class="page">
+  <h1>About</h1>
+  <p>This is an example text for the about page.</p>
+</div>
+
+<div id="page3" class="page">
+  <h1>Work</h1>
+  <p>This is an example text for the work page.</p>
+</div>
+
+<div id="page4" class="page">
+  <h1>Contact</h1>
+  <p>This is an example text for the contact page.</p>
+</div>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+</script>
+
+</body>
+</html>

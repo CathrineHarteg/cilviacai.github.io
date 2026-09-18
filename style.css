@@ -9,8 +9,18 @@
   border: 0;
 }
 
+/* Make any iframe or video responsive when not wrapped in .video */
+iframe, video {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border: 0;
+}
+
 @media (max-width: 600px) {
   .video {
-    max-width: 40%;
+    max-width: 100%;
   }
 }
